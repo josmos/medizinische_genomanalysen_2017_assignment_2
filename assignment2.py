@@ -31,17 +31,14 @@ class Assignment2:
         Get the total number of variants
         :return: total number of variants
         '''
-        print("\nNumber of Variants {}"
-              .format(len([i for i in VCF(self.vcf)])))
+        print("\nNumber of Variants {}".format(len(list(VCF(self.vcf)))))
 
     def get_variant_caller_of_vcf(self):
         '''
         Return the variant caller name
         :return:
         '''
-        print("\nVariant Caller: {}"
-              .format(self.metadata["source"]))
-
+        print("\nVariant Caller: {}".format(self.metadata["source"][0]))
 
     def get_human_reference_version(self):
         '''
@@ -57,7 +54,7 @@ class Assignment2:
         :return: 
         '''
         print("\nNumber of indels: {}"
-              .format(len([i for i in VCF(self.vcf) if i.is_indel])))
+              .format(sum([1 for i in VCF(self.vcf) if i.is_indel])))
 
     def get_number_of_snvs(self):
         '''
@@ -65,7 +62,7 @@ class Assignment2:
         :return: 
         '''
         print("\nNumber of SNVs: {}"
-              .format(len([i for i in VCF(self.vcf) if i.is_snp])))
+              .format(sum([1 for i in VCF(self.vcf) if i.is_snp])))
         
     def get_number_of_heterozygous_variants(self):
         '''
@@ -74,7 +71,7 @@ class Assignment2:
         TOTO
         '''
         print("\nNumber of heterozygous variants: {}"
-              .format(len([i for i in VCF(self.vcf) if i.num_het == 1])))
+              .format(sum([1 for i in VCF(self.vcf) if i.num_het == 1])))
     
     def print_summary(self):
         print(__author__)
