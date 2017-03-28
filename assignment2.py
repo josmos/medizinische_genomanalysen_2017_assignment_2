@@ -23,8 +23,7 @@ class Assignment2:
         Get the average PHRED quality of all variants
         :return:
         '''
-        print("\nAverage PHRED Score is {}"
-              .format(np.mean([i.QUAL for i in VCF(self.vcf)])))
+        print("\nAverage PHRED Score is {}".format(np.mean([i.QUAL for i in VCF(self.vcf)])))
 
     def get_total_number_of_variants_of_son(self):
         '''
